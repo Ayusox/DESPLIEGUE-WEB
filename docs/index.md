@@ -16,15 +16,9 @@ For full documentation visit [mkdocs.org](https://www.mkdocs.org).
         index.md  # The documentation homepage.
         ...       # Other markdown pages, images and other files.
 
+## ayuda por favor me muero ijijiejfirfjnrifjirt
 
 
-frfrfrfrrfrfrrffrfrrf
-
-
-
-rimng9itmjghoikmgotmmmmghymhomyhiom6yoiymioymhiyombyomopymhopty,hlkpty,g,lgt
-
-#lnjfirnijgntr
 
 
 
