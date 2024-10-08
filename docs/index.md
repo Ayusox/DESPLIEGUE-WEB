@@ -1,22 +1,15 @@
-# Welcome to MkDocs
+# Despliegue de un Sitio Web con Nginx
 
-For full documentation visit [mkdocs.org](https://www.mkdocs.org).
+## Introducción
+En esta práctica, desplegamos un servidor web utilizando **Nginx** en un sistema basado en Debian/Ubuntu. 
+A través de la instalación y configuración básica, conseguimos servir un sitio web estático de ejemplo. 
 
-## Commands
+## Paso 1: Instalación de Nginx
+Primero, actualizamos los paquetes e instalamos Nginx:
+```bash
+sudo apt update
+sudo apt install nginx
 
-* `mkdocs new [dir-name]` - Create a new project. 
-* `mkdocs serve` - Start the live-reloading docs server.
-* `mkdocs build` - Build the documentation site.
-* `mkdocs -h` - Print help message and exit.
-
-## Project layout
-
-    mkdocs.yml    # The configuration file.
-    docs/
-        index.md  # The documentation homepage.
-        ...       # Other markdown pages, images and other files.
-
-## ayuda por favor me muero ijijiejfirfjnrifjirt
 
 
 
