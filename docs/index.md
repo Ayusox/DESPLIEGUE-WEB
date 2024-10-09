@@ -9,6 +9,8 @@ Primero, actualizamos los paquetes e instalamos Nginx:
 ```bash
 sudo apt update
 sudo apt install nginx
+![Texto alternativo](images/1.png)
+
 
 
 
