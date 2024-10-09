@@ -6,11 +6,16 @@ A través de la instalación y configuración básica, conseguimos servir un sit
 
 ## Paso 1: Instalación de Nginx
 Primero, actualizamos los paquetes e instalamos Nginx:
-```bash
-sudo apt update
-sudo apt install nginx
-![Texto alternativo](images/1.png)
 
+-sudo apt update
+-sudo apt install nginx
+
+!(images/1.png)
+
+Verificamos que Nginx esté corriendo con el siguiente comando:
+- systemctl status nginx
+
+!(images/1.png)
 
 
 
