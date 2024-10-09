@@ -79,6 +79,19 @@ Dentro de este archivo, añadimos lo siguiente:
 
 ![Descripción de la imagen](images/8.png)
 
+Después de guardar el archivo, necesitamos habilitar este nuevo sitio creando un enlace simbólico en la carpeta sites-enabled:
+
+![Descripción de la imagen](images/11.png)
+
+- sudo ln -s /etc/nginx/sites-available/mi_sitio /etc/nginx/sites-enabled/
+
+Para que los cambios surtan efecto, reiniciamos Nginx con:
+
+![Descripción de la imagen](images/12.png)
+
+- sudo systemctl restart nginx
+
+
 
 
 
