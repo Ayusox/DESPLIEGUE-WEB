@@ -20,7 +20,7 @@ Verificamos que Nginx esté corriendo con el siguiente comando:
 
 Si todo está bien, debe mostrar que el servicio está activo.
 
-## Paso 2:Creación de las carpeta del sitio web
+## Paso 2: Creación de las carpeta del sitio web
 
 Ahora necesitamos crear un directorio donde se alojará nuestro sitio web. Normalmente, este se encuentra en /var/www.
 Usaremos mkdir para crear una nueva carpeta. 
@@ -29,7 +29,9 @@ Usaremos mkdir para crear una nueva carpeta.
 
 ![Descripción de la imagen](images/3.png)
 
-Ahí, dentro de esa carpeta html, debéis clonar el siguiente repositorio:
+Ahí, dentro de esa carpeta html, debémos clonar el siguiente repositorio:
+
+![Descripción de la imagen](images/7.png)
 
 https://github.com/cloudacademy/static-website-example
 
@@ -55,11 +57,28 @@ Despues buscamos en internet la ip de la maquina y debería de salir algo tal qu
 
 ![Descripción de la imagen](images/6.png)
 
-http://IP-maq-virtual
+- http://IP-maq-virtual
 
 Lo que muestra que todo está correcto.
 
-## Paso 3:Configuración de servidor web NGINX
+## Paso 3: Configuración de servidor web NGINX
+
+El siguiente paso es crear un archivo de configuración para nuestro sitio. Nos dirigimos a la carpeta de configuración de Nginx:
+
+- sudo nano /etc/nginx/sites-available/nombre_web
+
+![Descripción de la imagen](images/9.png)
+
+Para encontrar la ruta deberemos usar el siguiente comando:
+
+![Descripción de la imagen](images/10.png)
+
+- sudo find / -name index.html
+
+Dentro de este archivo, añadimos lo siguiente:
+
+![Descripción de la imagen](images/8.png)
+
 
 
 
