@@ -1,4 +1,4 @@
-# Despliegue de un Sitio Web con Nginx
+# **Despliegue de un Sitio Web con Nginx**
 
 ## Introducción
 En esta práctica, desplegamos un servidor web utilizando **Nginx** en un sistema basado en Debian/Ubuntu. 
@@ -10,14 +10,34 @@ Primero, actualizamos los paquetes e instalamos Nginx:
 -sudo apt update
 -sudo apt install nginx
 
-!(images/1.png)
+![Descripción de la imagen](images/1.png)
 
 Verificamos que Nginx esté corriendo con el siguiente comando:
+
 - systemctl status nginx
 
-!(images/1.png)
+![Descripción de la imagen](images/2.png)
 
+Si todo está bien, debe mostrar que el servicio está activo.
 
+## Paso 2:Creación de las carpeta del sitio web
+
+Ahora necesitamos crear un directorio donde se alojará nuestro sitio web. Normalmente, este se encuentra en /var/www.
+Usaremos mkdir para crear una nueva carpeta. 
+
+-sudo mkdir -p /var/www/nombre_web/html
+
+Ahí, dentro de esa carpeta html, debéis clonar el siguiente repositorio:
+
+https://github.com/cloudacademy/static-website-example
+
+Es importante cambiar la propiedad de este directorio a www-data, que es el usuario bajo el cual Nginx se ejecuta. Hacemos esto con:
+
+-sudo chown -R www-data:www-data /var/www/nombre_web/html
+
+Luego, ajustamos los permisos para que Nginx tenga acceso adecuado:
+
+-sudo chmod -R 755 /var/www/mi_sitio
 
 
 
