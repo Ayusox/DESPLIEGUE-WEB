@@ -91,6 +91,20 @@ Para que los cambios surtan efecto, reiniciamos Nginx con:
 
 - sudo systemctl restart nginx
 
+## Paso 4: Comprobaciones
+
+Primero añadimos la ip de la maquina virtual en la siguiente ruta
+
+- en Linux: /etc/hosts
+
+![Descripción de la imagen](images/13.png)
+
+El siguiente paso será añadir la ip nuestro pc en la que estamos usando la maquina para poder conectarnos posteriormente
+
+- en Windows: C:\Windows\System32\drivers\etc\hosts
+
+![Descripción de la imagen](images/14.png)
+
 
 
 
