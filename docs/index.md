@@ -103,24 +103,70 @@ El siguiente paso será añadir la ip nuestro pc en la que estamos usando la maq
 
 - en Windows: C:\Windows\System32\drivers\etc\hosts
 
-
 ![Descripción de la imagen](images/14x.png)
+
+Ahora pasaremos a la configuración del servidor SFTPD.
+En primer lugar, lo instalaremos desde los repositorios:
+
+- sudo apt-get update
+- sudo apt-get install vsftpd
+El comando sudo apt-get install vsftpd instala el paquete vsftpd, que es un servidor FTP ligero y seguro. 
+
+Despues creamos una carpeta en nuestro home en Debian:
+- mkdir /home/mario_web/ftp
 
 ![Descripción de la imagen](images/15.png)
 
+En la configuración de vsftpd indicaremos que este será el directorio al cual vsftpd se cambia después de conectarse el usuario.
+
+El siguiente paso será crear los certificados de seguridad necesarios para aportar la capa de cifrado a nuestra conexión.
+
+
 ![Descripción de la imagen](images/16.png)
+Usaremos el siguiente comando para la configuración de vsftpd.
+- sudo nano /etc/vsftpd.conf
+
+![Descripción de la imagen](images/16.png)
+Dentro de la configuración de vsftpd añadiremos lo siguiente que se muestra en la imagen
+Esta configuración asegura que las conexiones FTP sean seguras usando FTPS (FTP sobre SSL/TLS).
+Esto cifra tanto la autenticación como la transferencia de archivos, protegiendo los datos de posibles intercepciones.
 
 ![Descripción de la imagen](images/17.png)
 
+Ya hemos terminado con la configuración. 
+Ahora podremos acceder a nuestro servidor mediante un cliente FTP descargando filezilla client en el cliente
+
 ![Descripción de la imagen](images/18.png)
+Entramos en filezilla e introducimos los datos necesarios para conectarnos a nuestro servidor FTP en Debian
+
+- IP de la maquina servidor
+- Nombre
+- Contraseña
+- Puerto, que será el 21
+
+Como muestro en la imagen ya conectado a la maquina principal he pasado un archivo txt para combrobar que funciona correctamente.
 
 ![Descripción de la imagen](images/19.png)
 
+Por ultimo modificaremos la configuración del servidor web con Nginx, para poder mostrar la pagina final.
+
+Este archivo configura mi servidor web que sirve contenido estático desde /var/www/mario_web y asegura la conexión usando HTTPS.
+El puerto 80 redirige automáticamente al 443 (HTTPS) para garantizar conexiones seguras.
+
 ![Descripción de la imagen](images/20.png)
+
+Para comprobar que la configuración está correctamente y nos muestra la página,
+escribiremos en internet "https://www.mario_web.com/""
+
+Nos saldra un mensaje de advertencia, para poder visualizar la pagina pincharemos en "configuración avanzada" y despues en "Acceder a www.mario_web.com (sitio no seguro)""
 
 ![Descripción de la imagen](images/21.png)
 
+Finalmente nos mostrará la pagina final mostrando que todo el proceso realizado está correcto
+
 ![Descripción de la imagen](images/22.png)
+
+
 
 
 
