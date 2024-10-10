@@ -162,7 +162,7 @@ Nos saldra un mensaje de advertencia, para poder visualizar la pagina pincharemo
 
 ![Descripción de la imagen](images/21.png)
 
-Finalmente nos mostrará la pagina final mostrando que todo el proceso realizado está correcto
+Finalmente visualizará la pagina final mostrando que todo el proceso realizado está correcto
 
 ![Descripción de la imagen](images/22.png)
 
