@@ -103,6 +103,7 @@ El siguiente paso será añadir la ip nuestro pc en la que estamos usando la maq
 
 - en Windows: C:\Windows\System32\drivers\etc\hosts
 
+
 ![Descripción de la imagen](images/14.png)
 
 ![Descripción de la imagen](images/15.png)
