@@ -110,6 +110,7 @@ En primer lugar, lo instalaremos desde los repositorios:
 
 - sudo apt-get update
 - sudo apt-get install vsftpd
+
 El comando sudo apt-get install vsftpd instala el paquete vsftpd, que es un servidor FTP ligero y seguro. 
 
 Despues creamos una carpeta en nuestro home en Debian:
@@ -123,11 +124,14 @@ El siguiente paso será crear los certificados de seguridad necesarios para apor
 
 
 ![Descripción de la imagen](images/16.png)
+
 Usaremos el siguiente comando para la configuración de vsftpd.
+
 - sudo nano /etc/vsftpd.conf
 
 ![Descripción de la imagen](images/16.png)
-Dentro de la configuración de vsftpd añadiremos lo siguiente que se muestra en la imagen
+
+Dentro de la configuración de vsftpd añadiremos lo siguiente que se muestra en la imagen.
 Esta configuración asegura que las conexiones FTP sean seguras usando FTPS (FTP sobre SSL/TLS).
 Esto cifra tanto la autenticación como la transferencia de archivos, protegiendo los datos de posibles intercepciones.
 
@@ -165,6 +169,8 @@ Nos saldra un mensaje de advertencia, para poder visualizar la pagina pincharemo
 Finalmente visualizará la pagina final mostrando que todo el proceso realizado está correcto
 
 ![Descripción de la imagen](images/22.png)
+
+realizado por Mario Jurado Ayuso
 
 
 
