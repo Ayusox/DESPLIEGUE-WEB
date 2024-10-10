@@ -105,6 +105,22 @@ El siguiente paso será añadir la ip nuestro pc en la que estamos usando la maq
 
 ![Descripción de la imagen](images/14.png)
 
+![Descripción de la imagen](images/15.png)
+
+![Descripción de la imagen](images/16.png)
+
+![Descripción de la imagen](images/17.png)
+
+![Descripción de la imagen](images/18.png)
+
+![Descripción de la imagen](images/19.png)
+
+![Descripción de la imagen](images/20.png)
+
+![Descripción de la imagen](images/21.png)
+
+![Descripción de la imagen](images/22.png)
+
 
 
 
