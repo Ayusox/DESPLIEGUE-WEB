@@ -185,7 +185,7 @@ En primer lugar debemos comprobar si el paquete está instalado con el siguiente
 
 - dpkg -l | grep openssl
 
-![Descripción de la imagen](images/22.png)
+![Descripción de la imagen](images/24.png)
 
 Y si no lo estuviera, instalarlo.
 
@@ -193,7 +193,7 @@ Creación de usuarios y contraseñas para el acceso web
 
 Crearemos un archivo oculto llamado “.htpasswd” en el directorio de configuración /etc/nginx donde guardar nuestros usuarios y contraseñas:
 
-![Descripción de la imagen](images/22.png)
+![Descripción de la imagen](images/25.png)
 
 
 
