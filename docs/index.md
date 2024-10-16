@@ -1,5 +1,4 @@
-# **Práctica 2.1**
-# **Despliegue de un Sitio Web con Nginx**
+# **Práctica 2.1 - Despliegue de un Sitio Web con Nginx**
 
 ## Introducción
 En esta práctica, desplegamos un servidor web utilizando **Nginx** en un sistema basado en Debian/Ubuntu. 
@@ -171,7 +170,31 @@ Finalmente visualizará la pagina final mostrando que todo el proceso realizado 
 
 ![Descripción de la imagen](images/22.png)
 
-# **Práctica 2.2**
+# **Práctica 2.2 - Autenticación en Nginx**
+
+## Introducción
+La práctica 2.2 trata sobre cómo configurar autenticación básica en un servidor Nginx.
+El objetivo es proteger el acceso a ciertos recursos web usando usuarios y contraseñas.
+Se trabaja con la creación del archivo .htpasswd para almacenar credenciales cifradas, se configuran las directivas de autenticación en Nginx,
+y se realizan pruebas para asegurar que la autenticación funcione. 
+También se explora cómo combinar autenticación con restricciones por IP. 
+La práctica incluye tareas como modificar la configuración y analizar los logs de acceso.
+
+Paquetes necesarios:
+En primer lugar debemos comprobar si el paquete está instalado con el siguiente comando:
+
+- dpkg -l | grep openssl
+
+![Descripción de la imagen](images/22.png)
+
+Y si no lo estuviera, instalarlo.
+
+Creación de usuarios y contraseñas para el acceso web
+
+Crearemos un archivo oculto llamado “.htpasswd” en el directorio de configuración /etc/nginx donde guardar nuestros usuarios y contraseñas:
+
+![Descripción de la imagen](images/22.png)
+
 
 
 
