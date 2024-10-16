@@ -1,3 +1,4 @@
+# **Práctica 2.1**
 # **Despliegue de un Sitio Web con Nginx**
 
 ## Introducción
@@ -170,7 +171,7 @@ Finalmente visualizará la pagina final mostrando que todo el proceso realizado 
 
 ![Descripción de la imagen](images/22.png)
 
-realizado por Mario Jurado Ayuso
+# **Práctica 2.2**
 
 
 
