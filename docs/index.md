@@ -265,15 +265,6 @@ Para ver los usuarios que han accedido correctamente a la pagina sería usando e
 
 Para esta tarea haremos lo mismo pero añadiendo lo siguiente:
 
-nginx
-location / {
-    satisfy all;
-    allow 192.168.1.0/24;
-    deny all;
-    auth_basic "Área restringida";
-    auth_basic_user_file /etc/nginx/.htpasswd;
-}
-
 
 ![Descripción de la imagen](images/36.png)
 
@@ -317,6 +308,8 @@ server {
 }
 
 Aquí lo que hago es configurar el acceso restringido para el directorio /Proyectos usando la autenticación básica con un archivo de contraseñas (htpasswd). De esta forma, solo quienes tengan el usuario y la contraseña correcta podrán acceder al directorio.
+
+Realizado por Mario Jurado Ayuso
 
 
 
