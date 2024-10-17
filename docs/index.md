@@ -181,6 +181,7 @@ También se explora cómo combinar autenticación con restricciones por IP.
 La práctica incluye tareas como modificar la configuración y analizar los logs de acceso.
 
 Paquetes necesarios:
+
 En primer lugar debemos comprobar si el paquete está instalado con el siguiente comando:
 
 - dpkg -l | grep openssl
@@ -189,11 +190,60 @@ En primer lugar debemos comprobar si el paquete está instalado con el siguiente
 
 Y si no lo estuviera, instalarlo.
 
-Creación de usuarios y contraseñas para el acceso web
+###Creación de usuarios y contraseñas para el acceso web
 
 Crearemos un archivo oculto llamado “.htpasswd” en el directorio de configuración /etc/nginx donde guardar nuestros usuarios y contraseñas:
 
 ![Descripción de la imagen](images/25.png)
+
+Ahora crearemos un pasword cifrado para el usuario:
+
+Nos pedirá la contraseña que queramos y verificarla.
+
+![Descripción de la imagen](images/26.png)
+
+Crearemos otro usuario con mis apellidos y con el siguiente comando se mostrarán las contraseñas cifradas
+
+- cat /etc/nginx/.htpasswd
+
+![Descripción de la imagen](images/27.png)
+
+COMPROBACIÓN 1
+
+Al entrar en nuestra web nos pedirá el usuario y contraseña.
+
+![Descripción de la imagen](images/28.png)
+
+COMPROBACIÓN 2
+
+En caso de no poder acceder mostrará los siguiente
+
+![Descripción de la imagen](images/29.png)
+
+TAREA 1
+
+Aquí se muestra 3 intentos fallidos de autenticación usando el siguiente comando:
+
+- sudo nano /var/log/nginx/error.log
+
+![Descripción de la imagen](images/30.png)
+
+TAREA 2
+Borramos las dos líneas que hacen referencia a la autenticación básica en el location del directorio raíz.
+
+![Descripción de la imagen](images/32.png)
+
+Despues, añadimos un nuevo location debajo con la autenticación básica para el archivo/sección contact.html únicamente.
+
+![Descripción de la imagen](images/30.png)
+
+Al haber hecho esto solo podremos acceder al apartado de "contact"
+
+![Descripción de la imagen](images/33.png)
+
+ ### Combinación de la autenticación básica con la restricción de acceso por IP
+
+
 
 
 
