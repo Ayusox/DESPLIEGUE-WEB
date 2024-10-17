@@ -249,13 +249,31 @@ Entraremos en el archivo de configuración y añadiremos el deny junto a la dire
 
 ![Descripción de la imagen](images/34.png)
 
+Cuando configuramos Nginx con autenticación básica, cualquier intento fallido de acceder con credenciales incorrectas se registra en los logs. En este caso, primero intentaremos acceder con un usuario no válido y luego con uno correcto.
+
 Nos mostrará el siguiente error:
 
 ![Descripción de la imagen](images/35.png)
 
+Para ver los usuarios que han accedido correctamente a la pagina sería usando el siguiente comando:
+
+- sudo cat /var/log/nginx/access.log
+
+![Descripción de la imagen](images/38.png)
+
 ### Tarea 2
 
 Para esta tarea haremos lo mismo pero añadiendo lo siguiente:
+
+nginx
+location / {
+    satisfy all;
+    allow 192.168.1.0/24;
+    deny all;
+    auth_basic "Área restringida";
+    auth_basic_user_file /etc/nginx/.htpasswd;
+}
+
 
 ![Descripción de la imagen](images/36.png)
 
@@ -281,7 +299,6 @@ En este caso, aunque introduzca correctamente el usuario y la contraseña, no po
 Para proteger el directorio /Proyectos de mi web, lo que haría sería añadir un bloque location específico para ese directorio, con autenticación básica. La configuración quedaría algo así:
 
 nginx
-Copiar código
 server {
     listen 80;
     listen [::]:80;
