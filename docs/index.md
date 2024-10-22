@@ -309,6 +309,43 @@ server {
 
 Aquí lo que hago es configurar el acceso restringido para el directorio /Proyectos usando la autenticación básica con un archivo de contraseñas (htpasswd). De esta forma, solo quienes tengan el usuario y la contraseña correcta podrán acceder al directorio.
 
+# **Práctica 2.1 - Despliegue de un Sitio Web con Nginx**
+
+
+## Clonar la máquina virtual
+
+Lo primero que tenemos que hacer es Tomar la máquina virtual ya configurada en las prácticas anteriores y la clonamos. 
+Tendremos ahora dos máquinas: una que actuará como servidor web y la otra como proxy inverso.
+
+![Descripción de la imagen](images/39.png)
+
+Al clonar, es importante generar una nueva dirección MAC para que ambas máquinas tengan direcciones IP diferentes y no haya conflictos en la red.
+
+![Descripción de la imagen](images/40.png)
+
+## Nginx servidor web
+
+Primero modificamos el archivo de configuración de Nginx en /etc/nginx/sites-available/webserver (o creamos uno nuevo).
+Dentro, cambiamos la línea de listen 80 a listen 8080.
+
+![Descripción de la imagen](images/41.png)
+
+En el servidor web, cambiamos el puerto de escucha en Nginx.
+En vez del puerto 80, lo configuramos para que escuche en el puerto 8080.
+
+![Descripción de la imagen](images/42.png)
+
+Luego, eliminamos el enlace simbólico actual en /etc/nginx/sites-enabled/ y creamos uno nuevo apuntando al archivo que acabamos de modificar.
+
+![Descripción de la imagen](images/43.png)
+
+Finalmente, reiniciamos Nginx para aplicar los cambios con sudo systemctl restart nginx
+
+![Descripción de la imagen](images/44.png)
+
+
+
+
 Realizado por Mario Jurado Ayuso
 
 
