@@ -363,6 +363,26 @@ Habilitamos el sitio creando un enlace simbólico en /etc/nginx/sites-enabled/ej
 
 A continuación se procederá a modificar el archivo hosts de la maquina anfitriona para que la ip coincida con la de la maquina de webserver
 
+![Descripción de la imagen](images/52.png)
+
+## Realizar pruebas
+Para comprobar que todo funciona, abrimos el navegador e ingresamos la IP del proxy (o el nombre de dominio, si lo tenemos configurado).
+Las solicitudes que llegan al proxy deben ser redirigidas automáticamente al servidor web.
+
+![Descripción de la imagen](images/51.png)
+
+Si todo está bien configurado, al hacer la solicitud deberíamos ver el contenido servido desde el servidor web
+
+## Cabeceras
+
+Para añadir cabeceras, en el archivo de configuración del sitio web debemos añadir dentro del bloque location / { … } debemos añadir lo siguiente:
+- add_header Host nombre_del_host;
+
+![Descripción de la imagen](images/53.png)
+
+Aquí se muestra el resultado final
+
+![Descripción de la imagen](images/54.png)
 
 Realizado por Mario Jurado Ayuso
 
