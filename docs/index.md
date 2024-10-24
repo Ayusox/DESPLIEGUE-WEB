@@ -382,7 +382,7 @@ Para añadir cabeceras, en el archivo de configuración del sitio web debemos a�
 
 Aquí se muestra el resultado final
 
-![Descripción de la imagen](images/54.png)
+![Descripción de la imagen](images/54e.png)
 
 ![Descripción de la imagen](images/55.png)
 
