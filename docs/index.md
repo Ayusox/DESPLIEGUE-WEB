@@ -397,13 +397,11 @@ Además, se explorarán varios métodos de balanceo para entender cuál es más 
 
 ##CONFIGURACIÓN DE LOS SERVIDORES WEB
 
-- Maquina1:
+- Webserver1:
 
 Desactivamos los sitios web de las practicas anteriores
 
 ![Descripción de la imagen](images/58.png)
-
-- Maquina2:
 
 Lo Primero que haremos será cambiarle el nombre al archivo de conf
 
@@ -452,7 +450,34 @@ Lo siguiente será Crear el directorio /var/www/webserver1/html y creamos en él
 
 reiniciamos y comprobamos el servidor nginx
 
-![Descripción de la imagen](images/62.png)
+![Descripción de la imagen](images/63.png)
+
+Una vez hecho todo esto podemos pasar a clonar la maquina virtual.
+
+- Webserver2:
+Aqúi solamente habrá que repetir el proceso que ya hemos hecho pero cambiando webserver1 por Webserver2.
+
+Modificamos configuración
+
+![Descripción de la imagen](images/64.png)
+
+modificamos index.html
+
+![Descripción de la imagen](images/65.png)
+
+por ultimo reiniciamos y comprobamos el servidor nginx
+
+![Descripción de la imagen](images/66.png)
+
+##CONFIGURACIÓN DEL PROXY INVERSO
+
+Entramos en la máquina que configuramos el proxy inverso en la práctica anterior
+
+
+
+
+
+
 
 Realizado por Mario Jurado Ayuso
 
