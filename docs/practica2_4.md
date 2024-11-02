@@ -84,3 +84,41 @@ por ultimo reiniciamos y comprobamos el servidor nginx
 ##CONFIGURACIÓN DEL PROXY INVERSO
 
 Entramos en la máquina que configuramos el proxy inverso en la práctica anterior
+
+### balanceo de carga
+Primero, creamos el archivo en /etc/nginx/sites-available/ con el nombre balanceo:
+
+- sudo nano /etc/nginx/sites-available/balanceo
+
+Configurarmos el contenido: Dentro de este archivo, definimos un bloque upstream y especificamos los servidores para el balanceo de carga.
+
+Dentro estan incluidas las 2 ip de cada maquina.
+
+![Descripción de la imagen](images/67.png)
+
+Crea un enlace simbólico para habilitar la configuración y reiniciamos nginx.
+
+![Descripción de la imagen](images/68.png)
+
+Hasta aquí todo bien
+
+![Descripción de la imagen](images/69.png)
+
+## CONFIGURACIÓN DE /ETC/HOSTS
+- Webserver1
+
+![Descripción de la imagen](images/70.png)
+
+- Webserver2
+
+![Descripción de la imagen](images/70.png)
+
+- Proxy inverso
+
+![Descripción de la imagen](images/70.png)
+
+##RESULTADO
+Al entrar en http://balanceo nos mostrara las pagina que muestra.
+![Descripción de la imagen](images/71.png)
+
+![Descripción de la imagen](images/72.png)
