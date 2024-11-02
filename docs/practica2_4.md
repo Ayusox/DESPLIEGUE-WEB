@@ -117,8 +117,43 @@ Hasta aquí todo bien
 
 ![Descripción de la imagen](images/70.png)
 
-##RESULTADO
+## RESULTADO
 Al entrar en http://balanceo nos mostrara las pagina que muestra.
 ![Descripción de la imagen](images/71.png)
 
 ![Descripción de la imagen](images/72.png)
+
+## Cuestiones finales
+
+### Cuestión 1
+Métodos de balanceo de carga en Nginx:
+
+Round Robin: Envía solicitudes a los servidores en un orden cíclico.
+Least Connections: Dirige las solicitudes al servidor con la menor cantidad de conexiones activas.
+IP Hash: Utiliza la dirección IP del cliente para dirigir las solicitudes, asegurando que un cliente específico siempre acceda al mismo servidor.
+
+###Cuestión 2
+
+Añadir servidores al balanceo de carga:
+
+Actualizar el bloque upstream en la configuración de Nginx para incluir las nuevas direcciones IP de los servidores. Ejemplo:
+
+nginx
+Copiar código
+upstream backend_hosts {
+    server 192.168.18.239:8080;
+    server 192.168.18.243:8080;
+    server 192.168.18.250:8080;  # nuevo servidor
+    server 192.168.18.251:8080;  # nuevo servidor
+}
+Reiniciar Nginx con sudo systemctl restart nginx.
+
+### Cuestión 3
+
+Pasos para implementar balanceo de carga:
+
+Preparar los servidores web asegurándose de que estén configurados y escuchando en el puerto adecuado (ej. 8080).
+Configurar el proxy inverso en Nginx, creando un bloque upstream y un servidor que escuche en el puerto 80.
+(Opcional) Modificar el archivo /etc/hosts para facilitar el acceso al balanceador por nombre.
+Reiniciar Nginx.
+Probar la configuración accediendo a la URL del balanceador.
