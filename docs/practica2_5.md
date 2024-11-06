@@ -38,11 +38,12 @@ accedemos a la sección de ver certificado, donde se mostrará toda la configura
 ### Redirección forzosa a HTTPS
 Para configurar una redirección forzosa de HTTP a HTTPS en NGINX, agregamos un bloque server que escuche en el puerto 80 y redirija automáticamente a HTTPS:
 
-listen 80; indica que este bloque escucha en el puerto HTTP.
+**listen 80;** indica que este bloque escucha en el puerto HTTP.
 
-return 301 https://$host$request_uri; hace una redirección permanente a HTTPS manteniendo el mismo dominio y URL.
+**return 301** https://$host$request_uri; hace una redirección permanente a HTTPS manteniendo el mismo dominio y URL.
 
 Se deberá de modificar el archivo de configuración del proxy-inverso como se muestra en la siguiente imagen.
+
 ![Descripción de la imagen](images/81.png)
 
 ### Cuestiones finales
