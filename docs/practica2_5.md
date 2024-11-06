@@ -25,7 +25,7 @@ reiniciamos el servidor para aplicar los cambios
 ### Comprobaciones
 Probamos accediendo al sitio en HTTPS. Veremos una advertencia del navegador sobre el certificado autofirmado, pero es normal.
 
-![Descripción de la imagen](images/79.png)
+![Descripción de la imagen](images/81.png)
 
 accedemos a la sección de ver certificado, donde se mostrará toda la configuración y sus claves.
 
