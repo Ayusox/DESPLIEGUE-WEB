@@ -1,6 +1,6 @@
 # **Práctica 2.4 - Proxy inverso y balanceo de carga con SSL en NGINX**
 
-### Creación de certificado autofirmado
+## Creación de certificado autofirmado
 
 Para esta practica vamos a necesitar un certificado SSL autofirmado
 
@@ -11,7 +11,7 @@ Esto es un certificado “autofirmado”, o sea, no es de una entidad oficial. L
 ![Descripción de la imagen](images/73.png)
 ![Descripción de la imagen](images/74.png)
 
-### Configuración SSL en el proxy inverso
+## Configuración SSL en el proxy inverso
 
 En el archivo /etc/nginx/sites-available/balanceo, agregamos la configuración para que NGINX escuche en el puerto 443 (para HTTPS).
 Añadimos las rutas al certificado y la clave privada, y definimos los protocolos y cifrados de SSL que permitimos.Esto asegura que el tráfico esté cifrado.
@@ -22,7 +22,7 @@ reiniciamos el servidor para aplicar los cambios
 
 ![Descripción de la imagen](images/76.png)
 
-### Comprobaciones
+## Comprobaciones
 Probamos accediendo al sitio en HTTPS. Veremos una advertencia del navegador sobre el certificado autofirmado, pero es normal.
 
 ![Descripción de la imagen](images/80e.png)
@@ -46,7 +46,7 @@ Se deberá de modificar el archivo de configuración del proxy-inverso como se m
 
 ![Descripción de la imagen](images/81.png)
 
-### Cuestiones finales
+## Cuestiones finales
 ### Cuestion 1
 
 Si tienes el error ERR_SSL_PROTOCOL_ERROR, es porque falta un detalle: en la configuración, donde dice listen 443;, debe estar escrito como listen 443 ssl;. Sin ese ssl, NGINX no sabe que quieres usar SSL en ese puerto, así que el sitio no se carga.
