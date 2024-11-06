@@ -7,7 +7,7 @@ Aquí veremos cómo distribuir tráfico entre varios servidores, lo que mejora l
 El objetivo es configurar un proxy inverso que reparta las solicitudes entre dos servidores diferentes, de manera que se garantice el acceso incluso si uno de ellos falla.
 Además, se explorarán varios métodos de balanceo para entender cuál es más efectivo en distintas situaciones.
 
-##CONFIGURACIÓN DE LOS SERVIDORES WEB
+## CONFIGURACIÓN DE LOS SERVIDORES WEB
 
 - Webserver1:
 
@@ -132,7 +132,7 @@ Round Robin: Envía solicitudes a los servidores en un orden cíclico.
 Least Connections: Dirige las solicitudes al servidor con la menor cantidad de conexiones activas.
 IP Hash: Utiliza la dirección IP del cliente para dirigir las solicitudes, asegurando que un cliente específico siempre acceda al mismo servidor.
 
-###Cuestión 2
+### Cuestión 2
 
 Añadir servidores al balanceo de carga:
 
