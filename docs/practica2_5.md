@@ -1,4 +1,4 @@
-# **Práctica 2.4 - Proxy inverso y balanceo de carga con SSL en NGINX**
+# **Práctica 2.5 - Proxy inverso y balanceo de carga con SSL en NGINX**
 
 ## Creación de certificado autofirmado
 
