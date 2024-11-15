@@ -24,6 +24,7 @@ Hecho este paso pasaremos a reiniar el servicio de Tomcat con el comando `sudo s
 Que como se puede comprobar el servicio de tomcat esta activo y correcto.
 
 ![Descripción de la imagen](images/86.png)
+
 Cambie mi nombre a "manager" porque me daba errores.
 
 Accedemos a la dirección `http://localhost:8080/nombre_usuario/html` nos solicitará usuario y contraseña y nos mostrará lo siguiente:
@@ -66,4 +67,27 @@ lo siguiente será configurar Maven, modificaremos el archivo `settings.xml` y D
 ![Descripción de la imagen](images/95.png)
 
 Y se clona el repositorio de ejemplo facilitado para desplegarlo con Maven.
+
+![Descripción de la imagen](images/96.png)
+
+Por ultimo se editará el archivo `pom.xml` y la configuración. Como se muestra:
+
+![Descripción de la imagen](images/97.png)
+
+Si todo está correcto y ejecutamos el comando `mvn tomcat7:deploy` deberá aparecer algo así:
+
+![Descripción de la imagen](images/98.png)
+
+Si accedemos a la dirección `http://localhost:8080/nombre_usuario/` nos mostrará correctamente
+
+![Descripción de la imagen](images/99.png)
+
+![Descripción de la imagen](images/100.png)
+
+## Cuestiones
+
+*Solución:*
+
+Esto se debe a la facilidad de configuración y a la presunción de que Tomcat se empleará en entornos seguros y bien gestionados. Sin embargo, en entornos de producción, se aconseja evitar esta práctica mediante el uso de autenticación externa.
+
 
