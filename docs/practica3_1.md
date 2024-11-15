@@ -82,6 +82,8 @@ Si accedemos a la dirección `http://localhost:8080/nombre_usuario/` nos mostrar
 
 ![Descripción de la imagen](images/99.png)
 
+podremos acceder al archivo final.
+
 ![Descripción de la imagen](images/100.png)
 
 ## Cuestiones
