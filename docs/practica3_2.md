@@ -39,13 +39,8 @@ Una vez hechos los pasos si accedemos a la dirección `http://localhost:3000/`, 
 ## Cuestiones
 
 **¿Donde podemos ver que script se está ejecutando?**
-En el archivo package.json, dentro de la sección "scripts". Ahí encontrarás algo como:
 
-json
-Copiar código
-"scripts": {
-    "start": "node index.js"
-}
+En el archivo package.json, dentro de la sección "scripts".
 
 **¿Qué comando está ejecutando?**
 
