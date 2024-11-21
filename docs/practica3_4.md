@@ -32,6 +32,8 @@ Si accedemos a la dirección `http://localhost:8080/` desde nuestra maquina nos 
 
 ![Descripción de la imagen](images/114.png)
 
+## Aplicación para Netlify
+
 Para desplegar nuestra aplicación en Netlify, vamos a clonar el repositorio para esta practica
 
 ![Descripción de la imagen](images/115.png)
@@ -177,4 +179,3 @@ Este sería el ultimo paso de la practica correctamente.
 
 
 
-## Aplicación para Netlify
