@@ -114,6 +114,94 @@ Por ultimo accedemos a nuestro navegador para comprobar que funciona.
 
 Repetimos todo el proceso con la aplicación del siguiente repositorio: https://github.com/raul-profesor/Practica-3.5.
 
+![Descripción de la imagen](images/178.png)
+
+cambiaremos los permisos del directorio y los propietarios:
+
+![Descripción de la imagen](images/179.png)
+
+Creamos un archivo oculto `.env `dentro del directorio de nuestra aplicación con `touch .env.`
+
+![Descripción de la imagen](images/180.png)
+
+Editamos el archivo como hicimos anteriormente.
+
+![Descripción de la imagen](images/181.png)
+
+Iniciamos nuestro entorno de la practica.
+
+![Descripción de la imagen](images/182.png)
+
+intalamos sus dependencias y gunicorn.
+
+![Descripción de la imagen](images/183.png)
+
+por ultimo creamos el archivo `wsgi.py` y lo editamos.
+
+![Descripción de la imagen](images/184.png)
+
+Ejecutaremos la aplicacion y entramos en la ip proporcionada para que nos muestre la pagina en funcionamiento
+
+![Descripción de la imagen](images/185.png)
+
+![Descripción de la imagen](images/186.png)
+
+todo correcto.
+
+![Descripción de la imagen](images/187.png)
+
+obtendremos el path de Gunicorn para los siguientes pasos y saldremos del entorno virtual.
+
+![Descripción de la imagen](images/188.png)
+
+Ahora se desplegarla en Nginx.
+
+Creamos un archivo para que `systemd` corra Gunicorn
+
+![Descripción de la imagen](images/189.png)
+
+tendremos que configurar el sitio web de Nginx
+
+![Descripción de la imagen](images/190.png)
+
+Se habilitará el servicio y se hará el enlace simbólico:
+
+![Descripción de la imagen](images/191.png)
+
+![Descripción de la imagen](images/192.png)
+
+Tendremos que comprobar que el servicio está correcto y funciona correctamente
+
+![Descripción de la imagen](images/193.png)
+
+Por último tendremos que editar el archivo /etc/hosts y añadir la IP nuestra máquina a nuestro server_name.
+
+![Descripción de la imagen](images/194.png)
+
+comprobamos que la aplicación final funciona: 
+
+![Descripción de la imagen](images/195.png)
+
+## Cuestion
+
+Un servidor WSGI (Web Server Gateway Interface) es un intermediario entre un servidor web (como Nginx o Apache) y una aplicación Python (como Flask o Django). Su función principal es traducir las solicitudes del servidor web a un formato que la aplicación Python pueda entender y, luego, devolver la respuesta generada por la aplicación al servidor web.
+
+*¿Por qué lo necesitamos?*
+Los servidores web están diseñados para manejar conexiones y archivos estáticos, pero no pueden ejecutar directamente el código Python de una aplicación. El servidor WSGI facilita esa comunicación y permite que las aplicaciones Python funcionen correctamente en un entorno de producción.
+
+*Ejemplo:*
+Cuando un usuario visita tu sitio web, el servidor web (Nginx) pasa la solicitud al servidor WSGI (como Gunicorn), que ejecuta la aplicación Python (como Flask), y luego le devuelve al servidor web la respuesta que será enviada al navegador.
+
+En resumen, un servidor WSGI actúa como puente entre el servidor web y la aplicación Python, permitiendo que trabajen juntos para manejar solicitudes web.
+
+
+
+
+
+
+
+
+
 
 
 
