@@ -362,5 +362,7 @@ Hacer un Pull Request de los cambios en la rama autoria.
 
 ![Descripción de la imagen](images/296.png)
 
+![Descripción de la imagen](images/297.png)
+
 
 
