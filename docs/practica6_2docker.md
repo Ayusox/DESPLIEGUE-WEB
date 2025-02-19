@@ -114,5 +114,5 @@ Esto significa que todo el proceso se ha realizado correctamente.
 
 ### 7.Esquema de la Aplicación
 
-![Descripción de la imagen](images/334.png)
+![Descripción de la imagen](images/334.png) 
 
