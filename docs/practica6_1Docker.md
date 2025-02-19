@@ -75,4 +75,5 @@ Utilizamos curl para probar que la API funcionara correctamente
 
 *Eliminar una persona:* curl -X DELETE http://localhost:3000/persons/1 -H 'Content-Type: application/json'
 
-![Descripción de la imagen](images/311.png)
+![Descripción de la imagen](images/311
+.png)
