@@ -1,0 +1,898 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+        <link rel="canonical" href="https://Ayusox.github.io/practica2_1/">
+      
+      
+        <link rel="prev" href="../Practica_GITII/">
+      
+      
+        <link rel="next" href="../practica2_2/">
+      
+      
+      <link rel="icon" href="../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.5">
+    
+    
+      
+        <title>Práctica 2.1 - Despliegue de un Sitio Web con Nginx - My Docs</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.8608ea7d.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    <body dir="ltr">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#practica-21-despliegue-de-un-sitio-web-con-nginx" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href=".." title="My Docs" class="md-header__button md-logo" aria-label="My Docs" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            My Docs
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Práctica 2.1 - Despliegue de un Sitio Web con Nginx
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="My Docs" class="md-nav__button md-logo" aria-label="My Docs" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    My Docs
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Bienvenido a la Guía de Despliegue Web
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Practica4_1/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Práctica 4.1 - Configuración de un servidor DNS
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Practica_GIT/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    ejercicios Git y GitHub
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Practica_GITII/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Ejercicios Git y Github II
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    Práctica 2.1 - Despliegue de un Sitio Web con Nginx
+    
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  <span class="md-ellipsis">
+    Práctica 2.1 - Despliegue de un Sitio Web con Nginx
+    
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#introduccion" class="md-nav__link">
+    <span class="md-ellipsis">
+      Introducción
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#paso-1-instalacion-de-nginx" class="md-nav__link">
+    <span class="md-ellipsis">
+      Paso 1: Instalación de Nginx
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#paso-2-creacion-de-las-carpeta-del-sitio-web" class="md-nav__link">
+    <span class="md-ellipsis">
+      Paso 2: Creación de las carpeta del sitio web
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#paso-3-configuracion-de-servidor-web-nginx" class="md-nav__link">
+    <span class="md-ellipsis">
+      Paso 3: Configuración de servidor web NGINX
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#paso-4-comprobaciones" class="md-nav__link">
+    <span class="md-ellipsis">
+      Paso 4: Comprobaciones
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../practica2_2/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Práctica 2.2 - Autenticación en Nginx
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../practica2_3/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Práctica 2.3 - Proxy inverso con Nginx
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../practica2_4/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Práctica 2.4 - Proxy inverso con balanceo de carga con Nxginx
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../practica2_5/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Práctica 2.5 - Proxy inverso y balanceo de carga con SSL en NGINX
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../practica3_1/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Práctica 3.1: Instalación de Tomcat y Maven para despliegue de aplicación Java
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../practica3_2/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Práctica 3.2: Despliegue de aplicaciones con Node Express
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../practica3_4/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Práctica 3.4: Despliegue de una Aplicación React en Netlify (PaaS)
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../practica3_5/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Práctica 3.5 - Despliegue de una aplicación Flask
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../practica6_1Docker/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Práctica 6.1 - Dockerización del despliegue de una aplicación Node.js
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../practica6_2docker/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Práctica 6.2 - Despliegue de una aplicación PHP con Nginx y MySQL usando Docker y Docker-Compose
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../practica6_3docker/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Práctica 6.3 - Despliegue de servidores web con usuarios autenticados mediante LDAP usando Docker y docker-compose
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../practica_ampliacion/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Configuración de un Servidor Nginx con Hosts Virtuales y Directorios de Usuario
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#introduccion" class="md-nav__link">
+    <span class="md-ellipsis">
+      Introducción
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#paso-1-instalacion-de-nginx" class="md-nav__link">
+    <span class="md-ellipsis">
+      Paso 1: Instalación de Nginx
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#paso-2-creacion-de-las-carpeta-del-sitio-web" class="md-nav__link">
+    <span class="md-ellipsis">
+      Paso 2: Creación de las carpeta del sitio web
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#paso-3-configuracion-de-servidor-web-nginx" class="md-nav__link">
+    <span class="md-ellipsis">
+      Paso 3: Configuración de servidor web NGINX
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#paso-4-comprobaciones" class="md-nav__link">
+    <span class="md-ellipsis">
+      Paso 4: Comprobaciones
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="practica-21-despliegue-de-un-sitio-web-con-nginx"><strong>Práctica 2.1 - Despliegue de un Sitio Web con Nginx</strong></h1>
+<h2 id="introduccion">Introducción</h2>
+<p>En esta práctica, desplegamos un servidor web utilizando <strong>Nginx</strong> en un sistema basado en Debian/Ubuntu. 
+A través de la instalación y configuración básica, conseguimos servir un sitio web estático de ejemplo. </p>
+<h2 id="paso-1-instalacion-de-nginx">Paso 1: Instalación de Nginx</h2>
+<p>Primero, actualizamos los paquetes e instalamos Nginx:</p>
+<ul>
+<li>sudo apt update</li>
+<li>sudo apt install nginx</li>
+</ul>
+<p><img alt="Descripción de la imagen" src="../images/1.png" /></p>
+<p>Verificamos que Nginx esté corriendo con el siguiente comando:</p>
+<ul>
+<li>systemctl status nginx</li>
+</ul>
+<p><img alt="Descripción de la imagen" src="../images/2.png" /></p>
+<p>Si todo está bien, debe mostrar que el servicio está activo.</p>
+<h2 id="paso-2-creacion-de-las-carpeta-del-sitio-web">Paso 2: Creación de las carpeta del sitio web</h2>
+<p>Ahora necesitamos crear un directorio donde se alojará nuestro sitio web. Normalmente, este se encuentra en /var/www.
+Usaremos mkdir para crear una nueva carpeta. </p>
+<ul>
+<li>sudo mkdir -p /var/www/nombre_web/html</li>
+</ul>
+<p><img alt="Descripción de la imagen" src="../images/3.png" /></p>
+<p>Ahí, dentro de esa carpeta html, debémos clonar el siguiente repositorio:</p>
+<p><img alt="Descripción de la imagen" src="../images/7.png" /></p>
+<p>https://github.com/cloudacademy/static-website-example</p>
+<p>Es importante cambiar la propiedad de este directorio a www-data, que es el usuario bajo el cual Nginx se ejecuta. Hacemos esto con:</p>
+<ul>
+<li>sudo chown -R www-data:www-data /var/www/nombre_web/html</li>
+</ul>
+<p>Luego, ajustamos los permisos para que Nginx tenga acceso adecuado:</p>
+<ul>
+<li>sudo chmod -R 755 /var/www/nombre_web</li>
+</ul>
+<p><img alt="Descripción de la imagen" src="../images/4.png" /></p>
+<p>Para comprobar que el servidor está funcionando correctamente:</p>
+<p>miramos la ip de la maquina con el siguiente comando</p>
+<ul>
+<li>hostname -I</li>
+</ul>
+<p><img alt="Descripción de la imagen" src="../images/5.png" /></p>
+<p>Despues buscamos en internet la ip de la maquina y debería de salir algo tal que así</p>
+<p><img alt="Descripción de la imagen" src="../images/6.png" /></p>
+<ul>
+<li>http://IP-maq-virtual</li>
+</ul>
+<p>Lo que muestra que todo está correcto.</p>
+<h2 id="paso-3-configuracion-de-servidor-web-nginx">Paso 3: Configuración de servidor web NGINX</h2>
+<p>El siguiente paso es crear un archivo de configuración para nuestro sitio. Nos dirigimos a la carpeta de configuración de Nginx:</p>
+<ul>
+<li>sudo nano /etc/nginx/sites-available/nombre_web</li>
+</ul>
+<p><img alt="Descripción de la imagen" src="../images/9.png" /></p>
+<p>Para encontrar la ruta deberemos usar el siguiente comando:</p>
+<p><img alt="Descripción de la imagen" src="../images/10.png" /></p>
+<ul>
+<li>sudo find / -name index.html</li>
+</ul>
+<p>Dentro de este archivo, añadimos lo siguiente:</p>
+<p><img alt="Descripción de la imagen" src="../images/8.png" /></p>
+<p>Después de guardar el archivo, necesitamos habilitar este nuevo sitio creando un enlace simbólico en la carpeta sites-enabled:</p>
+<p><img alt="Descripción de la imagen" src="../images/11.png" /></p>
+<ul>
+<li>sudo ln -s /etc/nginx/sites-available/mi_sitio /etc/nginx/sites-enabled/</li>
+</ul>
+<p>Para que los cambios surtan efecto, reiniciamos Nginx con:</p>
+<p><img alt="Descripción de la imagen" src="../images/12.png" /></p>
+<ul>
+<li>sudo systemctl restart nginx</li>
+</ul>
+<h2 id="paso-4-comprobaciones">Paso 4: Comprobaciones</h2>
+<p>Primero añadimos la ip de la maquina virtual en la siguiente ruta</p>
+<ul>
+<li>en Linux: /etc/hosts</li>
+</ul>
+<p><img alt="Descripción de la imagen" src="../images/13.png" /></p>
+<p>El siguiente paso será añadir la ip nuestro pc en la que estamos usando la maquina para poder conectarnos posteriormente</p>
+<ul>
+<li>en Windows: C:\Windows\System32\drivers\etc\hosts</li>
+</ul>
+<p><img alt="Descripción de la imagen" src="../images/14x.png" /></p>
+<p>Ahora pasaremos a la configuración del servidor SFTPD.
+En primer lugar, lo instalaremos desde los repositorios:</p>
+<ul>
+<li>sudo apt-get update</li>
+<li>sudo apt-get install vsftpd</li>
+</ul>
+<p>El comando sudo apt-get install vsftpd instala el paquete vsftpd, que es un servidor FTP ligero y seguro. </p>
+<p>Despues creamos una carpeta en nuestro home en Debian:
+- mkdir /home/mario_web/ftp</p>
+<p><img alt="Descripción de la imagen" src="../images/15.png" /></p>
+<p>En la configuración de vsftpd indicaremos que este será el directorio al cual vsftpd se cambia después de conectarse el usuario.</p>
+<p>El siguiente paso será crear los certificados de seguridad necesarios para aportar la capa de cifrado a nuestra conexión.</p>
+<p><img alt="Descripción de la imagen" src="../images/16.png" /></p>
+<p>Usaremos el siguiente comando para la configuración de vsftpd.</p>
+<ul>
+<li>sudo nano /etc/vsftpd.conf</li>
+</ul>
+<p><img alt="Descripción de la imagen" src="../images/16.png" /></p>
+<p>Dentro de la configuración de vsftpd añadiremos lo siguiente que se muestra en la imagen.
+Esta configuración asegura que las conexiones FTP sean seguras usando FTPS (FTP sobre SSL/TLS).
+Esto cifra tanto la autenticación como la transferencia de archivos, protegiendo los datos de posibles intercepciones.</p>
+<p><img alt="Descripción de la imagen" src="../images/17.png" /></p>
+<p>Ya hemos terminado con la configuración. 
+Ahora podremos acceder a nuestro servidor mediante un cliente FTP descargando filezilla client en el cliente</p>
+<p><img alt="Descripción de la imagen" src="../images/18.png" />
+Entramos en filezilla e introducimos los datos necesarios para conectarnos a nuestro servidor FTP en Debian</p>
+<ul>
+<li>IP de la maquina servidor</li>
+<li>Nombre</li>
+<li>Contraseña</li>
+<li>Puerto, que será el 21</li>
+</ul>
+<p>Como muestro en la imagen ya conectado a la maquina principal he pasado un archivo txt para combrobar que funciona correctamente.</p>
+<p><img alt="Descripción de la imagen" src="../images/19.png" /></p>
+<p>Por ultimo modificaremos la configuración del servidor web con Nginx, para poder mostrar la pagina final.</p>
+<p>Este archivo configura mi servidor web que sirve contenido estático desde /var/www/mario_web y asegura la conexión usando HTTPS.
+El puerto 80 redirige automáticamente al 443 (HTTPS) para garantizar conexiones seguras.</p>
+<p><img alt="Descripción de la imagen" src="../images/20.png" /></p>
+<p>Para comprobar que la configuración está correctamente y nos muestra la página,
+escribiremos en internet "https://www.mario_web.com/""</p>
+<p>Nos saldra un mensaje de advertencia, para poder visualizar la pagina pincharemos en "configuración avanzada" y despues en "Acceder a www.mario_web.com (sitio no seguro)""</p>
+<p><img alt="Descripción de la imagen" src="../images/21.png" /></p>
+<p>Finalmente visualizará la pagina final mostrando que todo el proceso realizado está correcto</p>
+<p><img alt="Descripción de la imagen" src="../images/22.png" /></p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    <script id="__config" type="application/json">{"base": "..", "features": [], "search": "../assets/javascripts/workers/search.f8cc74c7.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.f1b6f286.min.js"></script>
+      
+    
+  </body>
+</html>
